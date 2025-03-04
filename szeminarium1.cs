@@ -54,6 +54,7 @@ namespace Szeminarium1
             graphicWindow.Run();
 
             Console.WriteLine("hello...");
+            Console.WriteLine("hello...");
         }
 
         private static void GraphicWindow_Closing()

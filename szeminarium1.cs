@@ -124,7 +124,7 @@ namespace Szeminarium1
                 -0.5f, -0.5f, 0.0f,
                 +0.5f, -0.5f, 0.0f,
                  0.0f, +0.5f, 0.0f,
-                 1f, 1f, -78f //ha a z koordinata nem 0 akkor nem jelenik meg a haromszog
+                 1f, 1f, -0.6f //ha a z koordinata nem 0 akkor nem jelenik meg a haromszog
             };
 
             float[] colorArray = new float[] {
@@ -140,7 +140,7 @@ namespace Szeminarium1
             };
 
             uint vertices = Gl.GenBuffer();
-            Gl.BindBuffer(GLEnum.ArrayBuffer, vertices);
+            //Gl.BindBuffer(GLEnum.ArrayBuffer, vertices); //ha torolve van nem jelenik meg semmi
             Gl.BufferData(GLEnum.ArrayBuffer, (ReadOnlySpan<float>)vertexArray.AsSpan(), GLEnum.StaticDraw);
             Gl.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 0, null);
             Gl.EnableVertexAttribArray(0);

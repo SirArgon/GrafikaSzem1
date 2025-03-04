@@ -53,8 +53,8 @@ namespace Szeminarium1
 
             graphicWindow.Run();
 
-            Console.WriteLine("hello...");
-            Console.WriteLine("hello...");
+            //Console.WriteLine("hello...");
+            //Console.WriteLine("hello...");
             ///kommentecske
         }
 
@@ -124,7 +124,7 @@ namespace Szeminarium1
                 -0.5f, -0.5f, 0.0f,
                 +0.5f, -0.5f, 0.0f,
                  0.0f, +0.5f, 0.0f,
-                 1f, 1f, 0f
+                 1f, 1f, -78f //ha a z koordinata nem 0 akkor nem jelenik meg a haromszog
             };
 
             float[] colorArray = new float[] {

@@ -85,7 +85,6 @@ namespace Szeminarium1
                 throw new Exception("Vertex shader failed to compile: " + Gl.GetShaderInfoLog(vshader));
 
             Gl.ShaderSource(fshader, FragmentShaderSource);
-            Gl.CompileShader(fshader);
 
             program = Gl.CreateProgram();
             Gl.AttachShader(program, vshader);
@@ -95,6 +94,7 @@ namespace Szeminarium1
             Gl.DetachShader(program, fshader);
             Gl.DeleteShader(vshader);
             Gl.DeleteShader(fshader);
+            Gl.CompileShader(fshader); ///hiba: Error linking shader Program Link Failed for unknown reason.
 
             Gl.GetProgram(program, GLEnum.LinkStatus, out var status);
             if (status == 0)
@@ -140,10 +140,10 @@ namespace Szeminarium1
             };
 
             uint vertices = Gl.GenBuffer();
-            //Gl.BindBuffer(GLEnum.ArrayBuffer, vertices); //ha torolve van nem jelenik meg semmi
+            Gl.BindBuffer(GLEnum.ArrayBuffer, vertices); //ha torolve van nem jelenik meg semmi
             Gl.BufferData(GLEnum.ArrayBuffer, (ReadOnlySpan<float>)vertexArray.AsSpan(), GLEnum.StaticDraw);
             Gl.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 0, null);
-            Gl.EnableVertexAttribArray(0);
+            Gl.EnableVertexAttribArray(0); 
 
             uint colors = Gl.GenBuffer();
             Gl.BindBuffer(GLEnum.ArrayBuffer, colors);

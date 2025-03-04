@@ -94,7 +94,8 @@ namespace Szeminarium1
             Gl.DetachShader(program, fshader);
             Gl.DeleteShader(vshader);
             Gl.DeleteShader(fshader);
-            Gl.CompileShader(fshader); ///hiba: Error linking shader Program Link Failed for unknown reason.
+            Gl.CompileShader(fshader); //hiba: Error linking shader Program Link Failed for unknown reason.
+            Console.WriteLine(Gl.GetError()); //eredménye: InvalidValue
 
             Gl.GetProgram(program, GLEnum.LinkStatus, out var status);
             if (status == 0)
